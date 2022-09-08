@@ -1,7 +1,8 @@
 import React from "react";
-import { useForm } from "../../hooks/useForm";
-import { registerUser } from "../../redux/thunks/authUserThunk";
+import { useForm } from "../../../hooks/useForm";
+import { registerUser } from "../../../redux/thunks/authUserThunk";
 import { useDispatch } from "react-redux";
+import {Button} from './registerStyles'
 
 export const RegisterScreen = () => {
   const dispatch = useDispatch();
@@ -52,7 +53,7 @@ export const RegisterScreen = () => {
           autoComplete="off"
         />
 
-        <button>registrar</button>
+        <Button>registrar</Button>
       </form>
     </>
   );
