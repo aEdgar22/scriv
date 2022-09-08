@@ -4,12 +4,16 @@ import { AppRouter } from "./routes/AppRouter";
 import { GlobalStyle } from "./styleComponents/GlobalStyles";
 
 import { store } from "./redux/store";
+import { ThemeProvider } from "styled-components";
+import { theme } from "./styleComponents/theme";
 
 function App() {
   return (
     <Provider store={store}>
-      <GlobalStyle />
-      <AppRouter />
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <AppRouter />
+      </ThemeProvider>
     </Provider>
   );
 }

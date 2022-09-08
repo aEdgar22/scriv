@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-
 export const Button = styled.button`
-    background-color: var(--cyan-color);
+    color: ${({theme}) => theme.colors.lilaColor}
 `;
 
