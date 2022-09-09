@@ -3,16 +3,22 @@ import { useForm } from "../../../hooks/useForm";
 import { registerUser } from "../../../redux/thunks/authUserThunk";
 import { useDispatch } from "react-redux";
 import { Input } from "../../../common/inputs/Input";
-/* import { LoginButton, OutlinedButton } from "../../../common/button/Button"; */
+import { LoginButton, OutlinedButton } from "../../../common/button/Button";
+import { LogoStyled } from "../../../common/logo/logo";
+import {
+  Container,
+  ContainerInput,
+  ContainerButton,
+} from "../../../common/container/container";
 
 export const RegisterScreen = () => {
   const dispatch = useDispatch();
 
   //utiliza hook useForm para manejar state de los inputs
   const [formValues, handleInputChange] = useForm({
-    email: "edgar2@gmail.com",
-    password: "1234252",
-    userName: "edgar",
+    email: "",
+    password: "",
+    userName: "",
   });
 
   //destructuro valores de formValues
@@ -26,37 +32,46 @@ export const RegisterScreen = () => {
 
   return (
     <>
+      <Container>
+        <LogoStyled sm></LogoStyled>
+        <p>Where and when you want.</p>
+      </Container>
+
       <form onSubmit={handleLogin}>
-        <Input
-          type="email"
-          name="email"
-          value={email}
-          placeholder="your_email@company.ltd"
-          onChange={handleInputChange}
-          autoComplete="off"
-        />
+        <ContainerInput size="sizeContainerInput">
+          <Input
+            type="text"
+            name="userName"
+            value={userName}
+            placeholder="User Name"
+            onChange={handleInputChange}
+            autoComplete="off"
+          />
 
+          <Input
+            type="email"
+            name="email"
+            value={email}
+            placeholder="your_email@company.ltd"
+            onChange={handleInputChange}
+            autoComplete="off"
+          />
 
-        <Input
-          type="password"
-          name="password"
-          value={password}
-          placeholder="password"
-          onChange={handleInputChange}
-          autoComplete="off"
-        />
+          <Input
+            type="password"
+            name="password"
+            value={password}
+            placeholder="password"
+            onChange={handleInputChange}
+            autoComplete="off"
+          />
 
-        <Input
-          type="text"
-          name="userName"
-          value={userName}
-          placeholder="User Name"
-          onChange={handleInputChange}
-          autoComplete="off"
-        />
-
-        {/*    <LoginButton size="lg">Sign In</LoginButton>
-        <OutlinedButton size="lg">continue with Google</OutlinedButton> */}
+          <ContainerButton size="sizeContainerButton">
+            <OutlinedButton>Continue with Google</OutlinedButton>
+            <LoginButton>Sign Up</LoginButton>
+            <span>You don't have an account? Sign up </span>
+          </ContainerButton>
+        </ContainerInput>
       </form>
     </>
   );

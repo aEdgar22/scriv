@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
 
     p{
         display: none;
@@ -21,24 +21,24 @@ export const Container = styled.div`
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-    }
 `
 
 export const ContainerInput = styled(Container)`
-    margin-top: 3rem;
-    row-gap: 1.375rem;
-    width: 100%;
+  margin-top: 3rem;
+  row-gap: 1.375rem;
+  width: 100%;
+  padding-bottom: 2rem;
 
-    @media(min-width: 768px){
-        row-gap: 1.125rem;
-    }
-`
+  @media (min-width: 768px) {
+    row-gap: 1.125rem;
+  }
+`;
 
 export const ContainerButton = styled(Container)`
-    margin-top: 3rem;
-    row-gap: 0.75rem;
+  margin-top: 3rem;
+  row-gap: 0.75rem;
 
-    @media(min-width: 768px){
-        row-gap: 1.25rem;
-    }
-`
+  @media (min-width: 768px) {
+    row-gap: 1.25rem;
+  }
+`;
