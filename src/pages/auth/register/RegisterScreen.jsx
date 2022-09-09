@@ -2,11 +2,11 @@ import React from "react";
 import { useForm } from "../../../hooks/useForm";
 import { registerUser } from "../../../redux/thunks/authUserThunk";
 import { useDispatch } from "react-redux";
-import {Button} from './registerStyles'
+/* import { LoginButton, OutlinedButton } from "../../../common/button/Button"; */
 
 export const RegisterScreen = () => {
   const dispatch = useDispatch();
-  
+
   //utiliza hook useForm para manejar state de los inputs
   const [formValues, handleInputChange] = useForm({
     email: "edgar2@gmail.com",
@@ -53,7 +53,8 @@ export const RegisterScreen = () => {
           autoComplete="off"
         />
 
-        <Button>registrar</Button>
+     {/*    <LoginButton size="lg">Sign In</LoginButton>
+        <OutlinedButton size="lg">continue with Google</OutlinedButton> */}
       </form>
     </>
   );
