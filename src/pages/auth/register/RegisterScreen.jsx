@@ -16,9 +16,9 @@ export const RegisterScreen = () => {
 
   //utiliza hook useForm para manejar state de los inputs
   const [formValues, handleInputChange] = useForm({
-    email: "edgar2@gmail.com",
-    password: "1234252",
-    userName: "edgar",
+    email: "",
+    password: "",
+    userName: "",
   });
 
   //destructuro valores de formValues
@@ -40,6 +40,15 @@ export const RegisterScreen = () => {
       <form onSubmit={handleLogin}>
         <ContainerInput size="sizeContainerInput">
           <Input
+            type="text"
+            name="userName"
+            value={userName}
+            placeholder="User Name"
+            onChange={handleInputChange}
+            autoComplete="off"
+          />
+
+          <Input
             type="email"
             name="email"
             value={email}
@@ -57,14 +66,6 @@ export const RegisterScreen = () => {
             autoComplete="off"
           />
 
-          <Input
-            type="text"
-            name="userName"
-            value={userName}
-            placeholder="User Name"
-            onChange={handleInputChange}
-            autoComplete="off"
-          />
           <ContainerButton size="sizeContainerButton">
             <OutlinedButton>Continue with Google</OutlinedButton>
             <LoginButton>Sign Up</LoginButton>
