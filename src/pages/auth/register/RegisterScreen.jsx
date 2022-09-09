@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "../../../hooks/useForm";
 import { registerUser } from "../../../redux/thunks/authUserThunk";
 import { useDispatch } from "react-redux";
+import { Input } from "../../../common/inputs/Input";
 /* import { LoginButton, OutlinedButton } from "../../../common/button/Button"; */
 
 export const RegisterScreen = () => {
@@ -26,7 +27,7 @@ export const RegisterScreen = () => {
   return (
     <>
       <form onSubmit={handleLogin}>
-        <input
+        <Input
           type="email"
           name="email"
           value={email}
@@ -35,7 +36,8 @@ export const RegisterScreen = () => {
           autoComplete="off"
         />
 
-        <input
+
+        <Input
           type="password"
           name="password"
           value={password}
@@ -44,7 +46,7 @@ export const RegisterScreen = () => {
           autoComplete="off"
         />
 
-        <input
+        <Input
           type="text"
           name="userName"
           value={userName}
@@ -53,7 +55,7 @@ export const RegisterScreen = () => {
           autoComplete="off"
         />
 
-     {/*    <LoginButton size="lg">Sign In</LoginButton>
+        {/*    <LoginButton size="lg">Sign In</LoginButton>
         <OutlinedButton size="lg">continue with Google</OutlinedButton> */}
       </form>
     </>

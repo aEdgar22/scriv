@@ -14,10 +14,9 @@ export const Button = styled.button`
   font-size: 1.125rem;
   width: ${({ size }) =>
     size === "sm" ? "16rem" : "lg" ? "16.5rem" : "10rem"};
-  height: ${({ size }) => (size === "sm" ? "2.375rem" : "lg" ? "2.375rem" : "8rem")};
-
-  margin-bottom: 0.75rem;
-  padding: 8px 16px;
+  height: ${({ size }) =>
+    size === "sm" ? "2.375rem" : "lg" ? "2.375rem" : "8rem"};
+  padding: 6px 16px;
   text-align: center;
 `;
 
