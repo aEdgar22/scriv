@@ -6,6 +6,7 @@ export const Container = styled.div`
 
     display: flex;
     flex-direction: column;
+  
 
     width: ${({ size }) =>
     size === "sizeContainerButton" ? "16rem" : "sizeContainerInput" ? "21.375" : "24.375"};

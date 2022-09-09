@@ -3,7 +3,9 @@ import { useForm } from "../../../hooks/useForm";
 import { registerUser } from "../../../redux/thunks/authUserThunk";
 import { useDispatch } from "react-redux";
 import { Input } from "../../../common/inputs/Input";
-/* import { LoginButton, OutlinedButton } from "../../../common/button/Button"; */
+import { LoginButton, OutlinedButton } from "../../../common/button/Button";
+import { LogoStyled } from "../../../common/logo/logo";
+import { Container } from "../../../common/container/container";
 
 export const RegisterScreen = () => {
   const dispatch = useDispatch();
@@ -26,6 +28,11 @@ export const RegisterScreen = () => {
 
   return (
     <>
+      <Container>
+        <LogoStyled sm></LogoStyled>
+        <p>Where and when you want.</p>
+      </Container>
+
       <form onSubmit={handleLogin}>
         <Input
           type="email"
@@ -35,7 +42,6 @@ export const RegisterScreen = () => {
           onChange={handleInputChange}
           autoComplete="off"
         />
-
 
         <Input
           type="password"
@@ -55,8 +61,10 @@ export const RegisterScreen = () => {
           autoComplete="off"
         />
 
-        {/*    <LoginButton size="lg">Sign In</LoginButton>
-        <OutlinedButton size="lg">continue with Google</OutlinedButton> */}
+        <Container size= 'sizeContainerButton'>
+          <LoginButton size="lg">Sign In</LoginButton>
+          <OutlinedButton size="lg">continue with Google</OutlinedButton>
+        </Container>
       </form>
     </>
   );
