@@ -6,23 +6,22 @@ export const Container = styled.div`
   align-items: center;
   width: fit-content;
 
-    p{
-        display: none;
+  p {
+    display: none;
+  }
 
+  @media (min-width: 768px) {
+    p {
+      display: block;
+      font-weight: ${({ theme }) => theme.fontWeight.weightBlack};
+      font-size: 40px;
+      background: linear-gradient(180deg, #8d9cf4 38.89%, #7bcdd1 62.78%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-
-    @media (min-width: 768px) {
-        p{
-            display: block;
-            font-weight: ${({theme}) => theme.fontWeight.weightBlack};
-            font-size: 40px;
-            background: linear-gradient(180deg, #8D9CF4 38.89%, #7BCDD1 62.78%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-}
-`
+  }
+`;
 
 export const ContainerInput = styled(Container)`
   margin-top: 3rem;
