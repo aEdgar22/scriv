@@ -1,8 +1,9 @@
 import React from "react";
-import { Container } from "../../../common/container/container";
+import { Container, ContainerButton, ContainerInput } from "../../../common/container/container";
 import { LogoStyled } from "../../../common/logo/logo";
 import { useForm } from "../../../hooks/useForm";
-
+import {Input} from "../../../common/inputs/Input"
+import { LoginButton, OutlinedButton } from "../../../common/button/Button";
 
 export const LoginScreen = () => {
 
@@ -25,8 +26,8 @@ export const LoginScreen = () => {
       </Container>
 
       <form>
-        <Container size="sizeContainerInput">
-          <input
+        <ContainerInput size="sizeContainerInput">
+          <Input
             type="email"
             name="email"
             value={email}
@@ -35,7 +36,7 @@ export const LoginScreen = () => {
             autoComplete="off"
           />
 
-          <input
+          <Input
             type="password"
             name="password"
             value={password}
@@ -44,13 +45,13 @@ export const LoginScreen = () => {
             autoComplete="off"
           />
 
-          <Container size="sizeContainerButton">
-            <button>Continue with Google</button>
-            <button>Log in</button>
+          <ContainerButton size="sizeContainerButton">
+            <OutlinedButton>Continue with Google</OutlinedButton>
+            <LoginButton>Log in</LoginButton>
             <span>You don't have an account? Sign up </span>
-          </Container>
+          </ContainerButton>
 
-        </Container>
+        </ContainerInput>
       </form>
     </>
   );
