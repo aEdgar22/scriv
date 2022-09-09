@@ -21,6 +21,7 @@ export const Container = styled.div`
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+}
 `
 
 export const ContainerInput = styled(Container)`
