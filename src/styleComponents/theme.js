@@ -15,8 +15,8 @@ const theme = {
         weightRegular: '400',
         weightMedium: '500',
         weightSemibold: '600',
-        weightBold: '700'
-
+        weightBold: '700',
+        weightBlack: '900'
     },
     sizeLogo: {
         lg: {
