@@ -6,7 +6,6 @@ export const Container = styled.div`
   align-items: center;
   width: fit-content;
 
-
     p{
         display: none;
 
