@@ -26,7 +26,7 @@ export const LoginScreen = () => {
       </Container>
 
       <form>
-        <ContainerInput size="sizeContainerInput">
+        <ContainerInput>
           <Input
             type="email"
             name="email"
@@ -45,7 +45,7 @@ export const LoginScreen = () => {
             autoComplete="off"
           />
 
-          <ContainerButton size="sizeContainerButton">
+          <ContainerButton>
             <OutlinedButton>Continue with Google</OutlinedButton>
             <LoginButton>Log in</LoginButton>
             <span>You don't have an account? Sign up </span>
