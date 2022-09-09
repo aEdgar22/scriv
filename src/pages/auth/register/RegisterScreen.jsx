@@ -5,7 +5,11 @@ import { useDispatch } from "react-redux";
 import { Input } from "../../../common/inputs/Input";
 import { LoginButton, OutlinedButton } from "../../../common/button/Button";
 import { LogoStyled } from "../../../common/logo/logo";
-import { Container } from "../../../common/container/container";
+import {
+  Container,
+  ContainerInput,
+  ContainerButton,
+} from "../../../common/container/container";
 
 export const RegisterScreen = () => {
   const dispatch = useDispatch();
@@ -34,37 +38,39 @@ export const RegisterScreen = () => {
       </Container>
 
       <form onSubmit={handleLogin}>
-        <Input
-          type="email"
-          name="email"
-          value={email}
-          placeholder="your_email@company.ltd"
-          onChange={handleInputChange}
-          autoComplete="off"
-        />
+        <ContainerInput size="sizeContainerInput">
+          <Input
+            type="email"
+            name="email"
+            value={email}
+            placeholder="your_email@company.ltd"
+            onChange={handleInputChange}
+            autoComplete="off"
+          />
 
-        <Input
-          type="password"
-          name="password"
-          value={password}
-          placeholder="password"
-          onChange={handleInputChange}
-          autoComplete="off"
-        />
+          <Input
+            type="password"
+            name="password"
+            value={password}
+            placeholder="password"
+            onChange={handleInputChange}
+            autoComplete="off"
+          />
 
-        <Input
-          type="text"
-          name="userName"
-          value={userName}
-          placeholder="User Name"
-          onChange={handleInputChange}
-          autoComplete="off"
-        />
-
-        <Container size= 'sizeContainerButton'>
-          <LoginButton size="lg">Sign In</LoginButton>
-          <OutlinedButton size="lg">continue with Google</OutlinedButton>
-        </Container>
+          <Input
+            type="text"
+            name="userName"
+            value={userName}
+            placeholder="User Name"
+            onChange={handleInputChange}
+            autoComplete="off"
+          />
+          <ContainerButton size="sizeContainerButton">
+            <OutlinedButton>Continue with Google</OutlinedButton>
+            <LoginButton>Sign Up</LoginButton>
+            <span>You don't have an account? Sign up </span>
+          </ContainerButton>
+        </ContainerInput>
       </form>
     </>
   );

@@ -10,6 +10,7 @@ const getColor = (defaultColor) => (props) =>
 export const Button = styled.button`
   border-radius: 16px;
   border: none;
+  cursor: pointer;
   font-weight: 600;
   font-size: 1.125rem;
   width: ${({ size }) =>

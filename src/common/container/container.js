@@ -1,16 +1,38 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
 
-    border: dashed darkgreen;
+  p {
+    display: none;
+  }
 
-    display: flex;
-    flex-direction: column;
-  
+  @media (min-width: 768px) {
+    p {
+      display: block;
+    }
+  }
+`;
 
-    width: ${({ size }) =>
-    size === "sizeContainerButton" ? "16rem" : "sizeContainerInput" ? "21.375" : "24.375"};
+export const ContainerInput = styled(Container)`
+  margin-top: 3rem;
+  row-gap: 1.375rem;
+  width: 100%;
+  padding-bottom: 2rem;
 
-    height: ${({ size }) =>
-    size === "sizeContainerButton" ? "8.375" : "sizeContainerInput" ? "12" : "27.375"};
-`
+  @media (min-width: 768px) {
+    row-gap: 1.125rem;
+  }
+`;
+
+export const ContainerButton = styled(Container)`
+  margin-top: 3rem;
+  row-gap: 0.75rem;
+
+  @media (min-width: 768px) {
+    row-gap: 1.25rem;
+  }
+`;

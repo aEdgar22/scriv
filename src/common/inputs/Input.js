@@ -8,8 +8,8 @@ const getColor = (defaultColor) => (props) =>
 
 export const Input = styled.input`
   padding: 6px 16px;
-  width: 342px;
-  height: 42px;
+  width: 80vw;
+  height: 52px;
   border-radius: 16px;
   font-weight: 400;
   font-size: 16px;
