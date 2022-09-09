@@ -9,7 +9,8 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 body {
-    background-color: var(--main-color);
+    background-color: ${({theme}) => theme.colors.mainColor};
+    color: ${({theme}) => theme.colors.textColor};
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     height: 100vh;

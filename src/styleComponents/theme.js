@@ -17,6 +17,12 @@ const theme = {
         weightSemibold: '600',
         weightBold: '700'
 
+    },
+    sizeLogo: {
+        lg: {
+            height: '14rem',
+            weight: '14rem'
+        }
     }
 };
 
