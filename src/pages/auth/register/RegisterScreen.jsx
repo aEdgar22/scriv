@@ -16,9 +16,9 @@ export const RegisterScreen = () => {
 
   //utiliza hook useForm para manejar state de los inputs
   const [formValues, handleInputChange] = useForm({
-    email: "",
-    password: "",
-    userName: "",
+    email: "abel@gmail.com",
+    password: "123456",
+    userName: "abel",
   });
 
   //destructuro valores de formValues
