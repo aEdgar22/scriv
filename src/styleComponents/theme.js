@@ -18,12 +18,6 @@ const theme = {
         weightBold: '700',
         weightBlack: '900'
     },
-    sizeLogo: {
-        lg: {
-            height: '14rem',
-            weight: '14rem'
-        }
-    }
 };
 
 export { theme };

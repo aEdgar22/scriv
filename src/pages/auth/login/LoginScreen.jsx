@@ -9,8 +9,9 @@ import { useForm } from "../../../hooks/useForm";
 import { Input } from "../../../common/inputs/Input";
 import { LoginButton, OutlinedButton } from "../../../common/button/Button";
 import { loginUserEmailPassword } from "../../../redux/thunks/authUserThunk";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import LogoGoogle from "../../../assets/google-logo.svg";
 
 export const LoginScreen = () => {
   const { login, msgError } = useSelector((state) => state.user);
@@ -54,7 +55,7 @@ export const LoginScreen = () => {
             type="email"
             name="email"
             value={email}
-            placeholder="your_email@company.ltd"
+            placeholder="Email"
             onChange={handleInputChange}
             autoComplete="off"
           />
@@ -63,15 +64,18 @@ export const LoginScreen = () => {
             type="password"
             name="password"
             value={password}
-            placeholder="password"
+            placeholder="Password"
             onChange={handleInputChange}
             autoComplete="off"
           />
 
           <ContainerButton>
-            <OutlinedButton>Continue with Google</OutlinedButton>
+            <OutlinedButton>
+              <img src={LogoGoogle} alt=""/>
+              Continue with Google
+              </OutlinedButton>
             <LoginButton>Log in</LoginButton>
-            <span>You don't have an account? Sign up </span>
+            <span id="labelSignUp">You don't have an account? <Link id="linkSignUp" to='/auth/register'>Sign Up</Link> </span>
           </ContainerButton>
         </ContainerInput>
       </form>

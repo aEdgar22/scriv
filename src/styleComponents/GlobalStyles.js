@@ -16,4 +16,19 @@ body {
     height: auto;
     width: 100%;
 }
+
+img{
+    height: 18px;
+    width: 18px;
+}
+
+#labelSignUp{
+    color: ${({theme}) => theme.colors.textInputColor};
+}
+
+#linkSignUp{
+    color: ${({theme}) => theme.colors.lilaColor};
+    font-weight: ${({theme}) => theme.fontWeight.weightBold};
+    text-decoration: none;
+}
 `;

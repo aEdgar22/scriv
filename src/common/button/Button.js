@@ -12,7 +12,7 @@ export const Button = styled.button`
   border: none;
   cursor: pointer;
   font-weight: 600;
-  font-size: 1.125rem;
+  font-size: 18px;
   width: ${({ size }) =>
     size === "sm" ? "16rem" : "lg" ? "16.5rem" : "10rem"};
   height: ${({ size }) =>
@@ -32,4 +32,8 @@ export const OutlinedButton = styled(Button)`
   border: 2px solid ${getColor("lilaColor")};
   background: transparent;
   color: ${getColor("lilaColor")};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 8px;
 `;
