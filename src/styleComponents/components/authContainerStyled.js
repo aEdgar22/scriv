@@ -5,8 +5,7 @@ export const Wrapper = styled.div`
     background-color: ${({theme}) => theme.colors.mainColor};
     display: flex;
     flex-direction: column;
-    height: auto;
-    padding-top: 7rem;
+    height: 100vh;
     padding: 7rem 1rem 0px;
     width: 100vw;
 
@@ -15,5 +14,6 @@ export const Wrapper = styled.div`
         column-gap: 224px;
         flex-direction: row;
         justify-content: center;
+        padding: 0px 1rem 8rem;
     }
 `
