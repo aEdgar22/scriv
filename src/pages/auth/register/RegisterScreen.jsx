@@ -10,6 +10,8 @@ import {
   ContainerInput,
   ContainerButton,
 } from "../../../common/container/container";
+import LogoGoogle from "../../../assets/google-logo.svg";
+import {Link} from 'react-router-dom';
 
 export const RegisterScreen = () => {
   const dispatch = useDispatch();
@@ -52,7 +54,7 @@ export const RegisterScreen = () => {
             type="email"
             name="email"
             value={email}
-            placeholder="your_email@company.ltd"
+            placeholder="Email"
             onChange={handleInputChange}
             autoComplete="off"
           />
@@ -61,15 +63,18 @@ export const RegisterScreen = () => {
             type="password"
             name="password"
             value={password}
-            placeholder="password"
+            placeholder="Password"
             onChange={handleInputChange}
             autoComplete="off"
           />
 
           <ContainerButton size="sizeContainerButton">
-            <OutlinedButton>Continue with Google</OutlinedButton>
+            <OutlinedButton>
+              <img src={LogoGoogle} alt="" />
+              Continue with Google
+            </OutlinedButton>
             <LoginButton>Sign Up</LoginButton>
-            <span>You don't have an account? Sign up </span>
+            <span id="labelSignUp">Already have an account?  <Link id="linkSignUp" to='/auth/login'>Log In</Link> </span>
           </ContainerButton>
         </ContainerInput>
       </form>

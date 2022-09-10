@@ -4,6 +4,8 @@ import { LogoStyled } from "../../../common/logo/logo";
 import { useForm } from "../../../hooks/useForm";
 import {Input} from "../../../common/inputs/Input"
 import { LoginButton, OutlinedButton } from "../../../common/button/Button";
+import LogoGoogle from "../../../assets/google-logo.svg";
+import {Link} from 'react-router-dom';
 
 export const LoginScreen = () => {
 
@@ -31,7 +33,7 @@ export const LoginScreen = () => {
             type="email"
             name="email"
             value={email}
-            placeholder="your_email@company.ltd"
+            placeholder="Email"
             onChange={handleInputChange}
             autoComplete="off"
           />
@@ -40,15 +42,18 @@ export const LoginScreen = () => {
             type="password"
             name="password"
             value={password}
-            placeholder="password"
+            placeholder="Password"
             onChange={handleInputChange}
             autoComplete="off"
           />
 
           <ContainerButton>
-            <OutlinedButton>Continue with Google</OutlinedButton>
+            <OutlinedButton>
+              <img src={LogoGoogle} alt=""/>
+              Continue with Google
+              </OutlinedButton>
             <LoginButton>Log in</LoginButton>
-            <span>You don't have an account? Sign up </span>
+            <span id="labelSignUp">You don't have an account? <Link id="linkSignUp" to='/auth/register'>Sign Up</Link> </span>
           </ContainerButton>
 
         </ContainerInput>
