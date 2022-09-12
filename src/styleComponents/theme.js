@@ -2,6 +2,7 @@
 const theme = {
     colors: {
         aquamarineColor: '#7BCDD1',
+        activeButtonColor: '#7D8BDD',
         borderBoxColor: 'rgba(95, 95, 95, 0.2)',
         borderInputColorWarning: '#E63946',
         bgInputColor: 'rgba(0, 0, 0, 0.02)',

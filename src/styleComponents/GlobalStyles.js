@@ -9,8 +9,8 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 body {
-    background-color: ${({theme}) => theme.colors.mainColor};
-    color: ${({theme}) => theme.colors.textColor};
+    background-color: ${({ theme }) => theme.colors.mainColor};
+    color: ${({ theme }) => theme.colors.textColor};
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     height: auto;
@@ -23,12 +23,17 @@ img{
 }
 
 #labelSignUp{
-    color: ${({theme}) => theme.colors.textInputColor};
+    color: ${({ theme }) => theme.colors.textInputColor};
 }
 
 #linkSignUp{
-    color: ${({theme}) => theme.colors.lilaColor};
-    font-weight: ${({theme}) => theme.fontWeight.weightBold};
+    color: ${({ theme }) => theme.colors.lilaColor};
+    font-weight: ${({ theme }) => theme.fontWeight.weightBold};
     text-decoration: none;
+    transition-duration: 300ms;
+
+    &:hover{
+        color: ${({ theme }) => theme.colors.activeButtonColor};
+    }
 }
 `;
