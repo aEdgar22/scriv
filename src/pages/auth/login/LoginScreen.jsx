@@ -8,7 +8,10 @@ import { LogoStyled } from "../../../common/logo/logo";
 import { useForm } from "../../../hooks/useForm";
 import { Input } from "../../../common/inputs/Input";
 import { LoginButton, OutlinedButton } from "../../../common/button/Button";
-import { loginUserEmailPassword } from "../../../redux/thunks/authUserThunk";
+import {
+  loginUserEmailPassword,
+  loginWithGoogle,
+} from "../../../redux/thunks/authUserThunk";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import LogoGoogle from "../../../assets/google-logo.svg";
@@ -34,6 +37,11 @@ export const LoginScreen = () => {
     dispatch(loginUserEmailPassword(email, password));
   };
 
+  const handleGoogleLogin = (e) =>{
+    e.preventDefault();
+    dispatch(loginWithGoogle())
+  }
+
   //efecto que escucha si hay uid navega a home o login
   useEffect(() => {
     // consultar useMemo
@@ -47,7 +55,7 @@ export const LoginScreen = () => {
         <p>Where and when you want.</p>
       </Container>
 
-      <form onSubmit={handleLogin}>
+      <form onSubmit={handleLogin} >
         <ContainerInput>
           <Input
             type="email"
@@ -68,7 +76,7 @@ export const LoginScreen = () => {
           />
 
           <ContainerButton>
-            <OutlinedButton>
+            <OutlinedButton onClick={handleGoogleLogin}>
               <img src={LogoGoogle} alt="" />
               Continue with Google
             </OutlinedButton>

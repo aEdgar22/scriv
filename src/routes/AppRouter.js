@@ -14,6 +14,7 @@ import { setUser } from "../redux/slices/userSlice";
 import { ProtectedRoute } from "./ProtectedRoute";
 
 export const AppRouter = () => {
+  
   const [checking, setChecking] = useState(true);
 
   const dispatch = useDispatch();
@@ -28,7 +29,6 @@ export const AppRouter = () => {
           })
         );
       }
-
       setChecking(false);
     });
   }, [dispatch]);

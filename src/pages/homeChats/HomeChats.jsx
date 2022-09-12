@@ -8,7 +8,9 @@ export const HomeChats = () => {
   /*   const navigate = useNavigate(); */
   const dispatch = useDispatch();
 
+  
   const handleLogout = () => {
+    //handle del logout de la app
     dispatch(logOut());
   };
 

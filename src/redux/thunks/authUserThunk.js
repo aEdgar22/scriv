@@ -5,6 +5,8 @@ import {
   updateProfile,
   signInWithEmailAndPassword,
   signOut,
+  signInWithPopup,
+  GoogleAuthProvider,
 } from "firebase/auth";
 import { auth } from "../../firebase/config";
 
@@ -38,6 +40,20 @@ export const registerUser = (email, password, userName) => {
   };
 };
 
+export const loginWithGoogle = () => {
+  return async (dispatch) => {
+    const googleProvider = new GoogleAuthProvider();
+    const { user } = await signInWithPopup(auth, googleProvider);
+
+    dispatch(
+      setUser({
+        uid: user.uid,
+        userName: user.displayName,
+      })
+    );
+  };
+};
+
 export const loginUserEmailPassword = (email, password) => {
   return async (dispatch) => {
     try {
@@ -63,9 +79,11 @@ export const logOut = () => {
   return async (dispatch) => {
     await signOut(auth);
 
-    dispatch(setUser({
-      uid: null,
-      userName: null
-    }));
+    dispatch(
+      setUser({
+        uid: null,
+        userName: null,
+      })
+    );
   };
 };
