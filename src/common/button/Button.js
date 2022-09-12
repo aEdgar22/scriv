@@ -19,12 +19,17 @@ export const Button = styled.button`
     size === "sm" ? "2.375rem" : "lg" ? "2.375rem" : "8rem"};
   padding: 6px 16px;
   text-align: center;
+  transition-duration: 300ms;
 `;
 
 //estilos boton login y registro
 export const LoginButton = styled(Button)`
   background-color: ${getColor("lilaColor")};
   color: ${getColor("mainColor")};
+
+  &:active{
+    background-color: ${({theme}) => theme.colors.activeButtonColor};
+  }
 `;
 
 //estilos boton login con Google

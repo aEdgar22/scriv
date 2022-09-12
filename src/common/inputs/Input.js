@@ -8,7 +8,8 @@ const getColor = (defaultColor) => (props) =>
 
 export const Input = styled.input`
   background-color: ${getColor("bgInputColor")};
-  border: transparent;
+  border: none;
+  outline: none;
   border-radius: 16px;
   font-weight: 400;
   font-size: 16px;
@@ -18,7 +19,7 @@ export const Input = styled.input`
   width: 80vw;
   color: ${getColor("textInputColor")};
   &:focus{
-    outline: none;
+    border: solid 1px #DADDE2;
   }
 
   @media (min-width: 768px) {
