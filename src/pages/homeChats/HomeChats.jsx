@@ -1,20 +1,20 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+/* import { useNavigate } from "react-router-dom"; */
 import { logOut } from "../../redux/thunks/authUserThunk";
 
 export const HomeChats = () => {
-  const { userName, uid } = useSelector((state) => state.auth);
-  const navigate = useNavigate();
+  const { userName } = useSelector((state) => state.auth);
+  /*   const navigate = useNavigate(); */
   const dispatch = useDispatch();
 
   const handleLogout = () => {
     dispatch(logOut());
   };
 
-  useEffect(() => {
+  /*   useEffect(() => {
     !uid && navigate("/auth/login");
-  }, [uid, navigate]);
+  }, [uid, navigate]); */
 
   return (
     <div>

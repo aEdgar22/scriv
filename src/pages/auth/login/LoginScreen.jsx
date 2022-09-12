@@ -34,6 +34,7 @@ export const LoginScreen = () => {
     dispatch(loginUserEmailPassword(email, password));
   };
 
+  //efecto que escucha si hay uid navega a home o login
   useEffect(() => {
     // consultar useMemo
     uid ? navigate("/") : navigate("/auth/login");

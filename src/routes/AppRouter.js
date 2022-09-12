@@ -11,6 +11,7 @@ import { AuthRouter } from "./AuthRouter";
 import { auth } from "../firebase/config";
 import { useDispatch } from "react-redux";
 import { setUser } from "../redux/slices/userSlice";
+import { ProtectedRoute } from "./ProtectedRoute";
 
 export const AppRouter = () => {
   const [checking, setChecking] = useState(true);
@@ -32,9 +33,9 @@ export const AppRouter = () => {
     });
   }, [dispatch]);
 
-if(checking) {
-  return <h1>wait...</h1>
-}
+  if (checking) {
+    return <h1>wait...</h1>;
+  }
 
   return (
     <Router>
@@ -42,7 +43,14 @@ if(checking) {
         {/* rutas iniciales */}
 
         <Route path="/*" element={<AuthRouter />} />
-        <Route path="/" element={<HomeChats />} />
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <HomeChats />
+            </ProtectedRoute>
+          }
+        />
         <Route path="*" element={<Navigate replace to="/auth/login" />} />
       </Routes>
     </Router>
