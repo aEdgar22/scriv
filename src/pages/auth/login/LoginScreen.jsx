@@ -14,9 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import LogoGoogle from "../../../assets/google-logo.svg";
 
 export const LoginScreen = () => {
-  const { login, msgError } = useSelector((state) => state.user);
-/* 
-  console.log("login:" + login); */
+  const { uid } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -32,15 +30,14 @@ export const LoginScreen = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    //enviando informacion usuario a thunk de registro
+    //enviando informacion usuario a thunk de login
     dispatch(loginUserEmailPassword(email, password));
   };
 
-  useEffect(() => { // consultar useMemo
-    login ? navigate("/") : navigate("/auth/login");
-
-    console.log(msgError);
-  }, [login, msgError, navigate]);
+  useEffect(() => {
+    // consultar useMemo
+    uid ? navigate("/") : navigate("/auth/login");
+  }, [uid, navigate]);
 
   return (
     <>
@@ -71,11 +68,16 @@ export const LoginScreen = () => {
 
           <ContainerButton>
             <OutlinedButton>
-              <img src={LogoGoogle} alt=""/>
+              <img src={LogoGoogle} alt="" />
               Continue with Google
-              </OutlinedButton>
+            </OutlinedButton>
             <LoginButton>Log in</LoginButton>
-            <span id="labelSignUp">You don't have an account? <Link id="linkSignUp" to='/auth/register'>Sign Up</Link> </span>
+            <span id="labelSignUp">
+              You don't have an account?{" "}
+              <Link id="linkSignUp" to="/auth/register">
+                Sign Up
+              </Link>{" "}
+            </span>
           </ContainerButton>
         </ContainerInput>
       </form>

@@ -1,8 +1,10 @@
 import { setUser } from "../slices/userSlice";
+import { setError } from "../slices/uiSlice";
 import {
   createUserWithEmailAndPassword,
   updateProfile,
   signInWithEmailAndPassword,
+  signOut,
 } from "firebase/auth";
 import { auth } from "../../firebase/config";
 
@@ -25,9 +27,13 @@ export const registerUser = (email, password, userName) => {
           userName: user.displayName,
         })
       );
-      return true;
     } catch (error) {
-      console.log(error);
+      dispatch(
+        setError({
+          error: true,
+          msgError: error.message,
+        })
+      );
     }
   };
 };
@@ -40,17 +46,26 @@ export const loginUserEmailPassword = (email, password) => {
         setUser({
           uid: user.uid,
           userName: user.displayName,
-          login: true,
         })
       );
     } catch (error) {
-
-       dispatch(
-        setUser({
+      dispatch(
+        setError({
           error: true,
-          msgError: error.message
+          msgError: error.message,
         })
       );
     }
+  };
+};
+
+export const logOut = () => {
+  return async (dispatch) => {
+    await signOut(auth);
+
+    dispatch(setUser({
+      uid: null,
+      userName: null
+    }));
   };
 };
