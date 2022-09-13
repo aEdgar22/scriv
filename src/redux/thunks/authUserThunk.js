@@ -1,5 +1,5 @@
 import { setUser } from "../slices/userSlice";
-import { setError } from "../slices/uiSlice";
+import { setError, startLoading, finishLoading } from "../slices/uiSlice";
 import {
   createUserWithEmailAndPassword,
   updateProfile,
@@ -56,6 +56,8 @@ export const loginWithGoogle = () => {
 
 export const loginUserEmailPassword = (email, password) => {
   return async (dispatch) => {
+    dispatch(startLoading());
+
     try {
       const { user } = await signInWithEmailAndPassword(auth, email, password);
       dispatch(
@@ -64,6 +66,8 @@ export const loginUserEmailPassword = (email, password) => {
           userName: user.displayName,
         })
       );
+
+      dispatch(finishLoading());
     } catch (error) {
       dispatch(
         setError({
@@ -71,6 +75,7 @@ export const loginUserEmailPassword = (email, password) => {
           msgError: error.message,
         })
       );
+      dispatch(finishLoading());
     }
   };
 };

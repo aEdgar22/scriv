@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import validator from "validator";
 import { useForm } from "../../../hooks/useForm";
 import { registerUser } from "../../../redux/thunks/authUserThunk";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,27 +13,72 @@ import {
 } from "../../../common/container/container";
 import LogoGoogle from "../../../assets/google-logo.svg";
 import { Link, useNavigate } from "react-router-dom";
+import { setError } from "../../../redux/slices/uiSlice";
 
 export const RegisterScreen = () => {
-  const { uid } = useSelector((state) => state.auth);
-
-  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  //tomando valores del store
+  const { uid } = useSelector((state) => state.auth);
+  const { error, msgError } = useSelector((state) => state.ui);
 
   //utiliza hook useForm para manejar state de los inputs
   const [formValues, handleInputChange] = useForm({
-    email: "abel@gmail.com",
-    password: "123456",
-    userName: "abel",
+    email: "",
+    password: "",
+    userName: "",
   });
-
-  //destructuro valores de formValues
   const { email, password, userName } = formValues;
 
   const handleLogin = (e) => {
     e.preventDefault();
-    //enviando informacion usuario a thunk de registro
-    dispatch(registerUser(email, password, userName));
+
+    //validacion campos del formulario
+    if (validForm()) {
+      //enviando informacion usuario a thunk de registro
+      dispatch(registerUser(email, password, userName));
+      dispatch(
+        setError({
+          error: false,
+          msgError: null,
+        })
+      );
+    }
+  };
+
+  const validForm = () => {
+    if (userName.trim().length === 0) {
+      dispatch(
+        setError({
+          error: true,
+          msgError: "name is required",
+        })
+      );
+      return false;
+    }
+
+    if (!validator.isEmail(email)) {
+      dispatch(
+        setError({
+          error: true,
+          msgError: "email is invalid",
+        })
+      );
+      return false;
+    }
+
+    if (password.length < 5) {
+      dispatch(
+        setError({
+          error: true,
+          msgError: "password should be at least 6 characters",
+        })
+      );
+      return false;
+    }
+
+    return true;
   };
 
   useEffect(() => {

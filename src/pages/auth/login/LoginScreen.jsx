@@ -16,8 +16,12 @@ import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import LogoGoogle from "../../../assets/google-logo.svg";
 
+
+
 export const LoginScreen = () => {
   const { uid } = useSelector((state) => state.auth);
+  const { isLoading } = useSelector((state) => state.ui);
+
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -80,7 +84,12 @@ export const LoginScreen = () => {
               <img src={LogoGoogle} alt="" />
               Continue with Google
             </OutlinedButton>
-            <LoginButton>Log in</LoginButton>
+            <LoginButton
+              disabled={isLoading}
+            >
+              Log in
+            
+            </LoginButton>
             <span id="labelSignUp">
               You don't have an account?{" "}
               <Link id="linkSignUp" to="/auth/register">
