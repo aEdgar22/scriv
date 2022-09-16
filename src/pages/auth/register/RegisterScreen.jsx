@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import validator from "validator";
 
 import { useForm } from "../../../hooks/useForm";
 import { registerUser } from "../../../redux/thunks/authUserThunk";
@@ -16,6 +15,7 @@ import LogoGoogle from "../../../assets/google-logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { setError } from "../../../redux/slices/uiSlice";
 import { createUser } from "../../../services/users/createUser";
+import { validForm } from "../../../helpers/validForm";
 
 export const RegisterScreen = () => {
   const navigate = useNavigate();
@@ -23,7 +23,8 @@ export const RegisterScreen = () => {
 
   //tomando valores del store
   const { uid } = useSelector((state) => state.auth);
-  /*   const { error, msgError } = useSelector((state) => state.ui); */ //mostrar mensajes al usuario
+
+/*   const { error, msgError } = useSelector((state) => state.ui);  *///mostrar mensajes al usuario
 
   //utiliza hook useForm para manejar state de los inputs
   const [formValues, handleInputChange] = useForm({
@@ -33,13 +34,26 @@ export const RegisterScreen = () => {
   });
   const { email, password, userName } = formValues;
 
+  const { state, error, msgError } = validForm(userName, email, password);
+
   const handleLogin = (e) => {
     e.preventDefault();
 
     //validacion campos del formulario
-    if (validForm()) {
+    if (state === false) {
+      dispatch(
+        setError({
+          error: error,
+          msgError: msgError,
+        })
+      );
+      console.log(msgError);
+    } else {
+      console.log("bueno");
       //enviando informacion usuario a thunk de registro
       dispatch(registerUser(email, password, userName));
+
+     //pasando errores 
       dispatch(
         setError({
           error: false,
@@ -47,11 +61,11 @@ export const RegisterScreen = () => {
         })
       );
 
-      createUser(userName, email)
+      createUser(userName, email);
     }
   };
 
-  const validForm = () => {
+  /* const validForm = () => {
     if (userName.trim().length === 0) {
       dispatch(
         setError({
@@ -83,7 +97,7 @@ export const RegisterScreen = () => {
     }
 
     return true;
-  };
+  }; */
 
   useEffect(() => {
     // consultar useMemo
