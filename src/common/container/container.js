@@ -31,10 +31,11 @@ export const ContainerInput = styled(Container)`
   padding-bottom: 2rem;
 
   @media (min-width: 768px) {
-    border: solid 1px ${({theme}) => theme.colors.borderBoxColor};
+    border: solid 1px ${({ theme }) => theme.colors.borderBoxColor};
     border-radius: 8px;
     row-gap: 1.125rem;
     padding: 1.5rem;
+    margin-top: 6rem;
   }
 `;
 

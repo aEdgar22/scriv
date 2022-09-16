@@ -1,27 +1,11 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-/* import { useNavigate } from "react-router-dom"; */
-import { logOut } from "../../redux/thunks/authUserThunk";
+import { LeftSideBar } from "../../layout/LeftSideBar";
+
 
 export const HomeChats = () => {
-  const { userName } = useSelector((state) => state.auth);
-  /*   const navigate = useNavigate(); */
-  const dispatch = useDispatch();
-
-  
-  const handleLogout = () => {
-    //handle del logout de la app
-    dispatch(logOut());
-  };
-
-  /*   useEffect(() => {
-    !uid && navigate("/auth/login");
-  }, [uid, navigate]); */
-
   return (
     <div>
-      <h1>hola {userName}</h1>
-      <button onClick={handleLogout}>log Out</button>
+        <LeftSideBar />
     </div>
   );
 };

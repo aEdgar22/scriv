@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import validator from "validator";
+
 import { useForm } from "../../../hooks/useForm";
 import { registerUser } from "../../../redux/thunks/authUserThunk";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,6 +15,7 @@ import {
 import LogoGoogle from "../../../assets/google-logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { setError } from "../../../redux/slices/uiSlice";
+import { createUser } from "../../../services/users/createUser";
 
 export const RegisterScreen = () => {
   const navigate = useNavigate();
@@ -21,7 +23,7 @@ export const RegisterScreen = () => {
 
   //tomando valores del store
   const { uid } = useSelector((state) => state.auth);
-  const { error, msgError } = useSelector((state) => state.ui);
+  /*   const { error, msgError } = useSelector((state) => state.ui); */ //mostrar mensajes al usuario
 
   //utiliza hook useForm para manejar state de los inputs
   const [formValues, handleInputChange] = useForm({
@@ -44,6 +46,8 @@ export const RegisterScreen = () => {
           msgError: null,
         })
       );
+
+      createUser(userName, email)
     }
   };
 

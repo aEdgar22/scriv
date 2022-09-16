@@ -20,10 +20,6 @@ const UI = createSlice({
       state.error = action.payload.error;
       state.msgError = action.payload.msgError;
     },
- /*    removeError(state, action){
-      state.error = false,
-      state.msgError = null
-    } */
   },
 });
 
