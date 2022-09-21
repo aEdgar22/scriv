@@ -12,6 +12,8 @@ import { auth } from "../firebase/config";
 import { useDispatch } from "react-redux";
 import { setUser } from "../redux/slices/userSlice";
 import { ProtectedRoute } from "./ProtectedRoute";
+import { LogoStyled } from "../common/logo/logo";
+import "animate.css";
 
 export const AppRouter = () => {
   
@@ -34,7 +36,7 @@ export const AppRouter = () => {
   }, [dispatch]);
 
   if (checking) {
-    return <h1>wait...</h1>;
+    return <LogoStyled/>;
   }
 
   return (
