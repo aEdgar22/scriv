@@ -48,3 +48,20 @@ export const ContainerButton = styled(Container)`
     row-gap: 1.25rem;
   }
 `;
+
+export const ContainerLeftSideBar = styled(Container)`
+  width: 100%;
+  border: 1px solid red;
+  align-items: flex-start;
+  padding: 1rem;
+  height: 100vh;
+`;
+
+export const GroupChatContainer = styled(Container)`
+  width: 100%;
+  row-gap: 2.5rem;
+  /* border: 1px solid red; */
+  overflow: auto;
+  height: 60%;
+  margin-bottom: 15%;
+`;
