@@ -14,7 +14,6 @@ import {
 import LogoGoogle from "../../../assets/google-logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { setError } from "../../../redux/slices/uiSlice";
-import { createUser } from "../../../services/users/createUser";
 import { validForm } from "../../../helpers/validForm";
 
 export const RegisterScreen = () => {
@@ -24,7 +23,7 @@ export const RegisterScreen = () => {
   //tomando valores del store
   const { uid } = useSelector((state) => state.auth);
 
-/*   const { error, msgError } = useSelector((state) => state.ui);  *///mostrar mensajes al usuario
+  /*   const { error, msgError } = useSelector((state) => state.ui);  */ //mostrar mensajes al usuario
 
   //utiliza hook useForm para manejar state de los inputs
   const [formValues, handleInputChange] = useForm({
@@ -47,21 +46,17 @@ export const RegisterScreen = () => {
           msgError: msgError,
         })
       );
-      console.log(msgError);
     } else {
-      console.log("bueno");
       //enviando informacion usuario a thunk de registro
       dispatch(registerUser(email, password, userName));
 
-     //pasando errores 
+      //pasando errores
       dispatch(
         setError({
           error: false,
           msgError: null,
         })
       );
-
-      createUser(userName, email);
     }
   };
 

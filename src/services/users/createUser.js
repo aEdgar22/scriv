@@ -1,16 +1,13 @@
-import { addDoc, collection } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase/config";
 
-export const createUser = async (userName, userEmail) => {
+export const createUser = async (user) => {
   try {
-    console.log("llamada");
-
-    const docRef = await addDoc(collection(db, "users"), {
-      userName: userName,
-      userEmail: userEmail,
+    await setDoc(doc(db, "users", user.uid), {
+      uid: user.uid,
+      displayName: user.displayName,
+      userEmail: user.email,
     });
-    console.log("usuario creado con: ", docRef.id);
-    
   } catch (error) {
     console.log(error);
   }
