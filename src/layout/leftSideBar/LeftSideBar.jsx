@@ -1,12 +1,14 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { OutlinedButton } from "../../common/button/Button";
+import { Button, OutlinedButton } from "../../common/button/Button";
 import {
+  ContainerButton,
   ContainerLeftSideBar,
   GroupChatContainer,
 } from "../../common/container/container";
 import { InputLeftSideBar } from "../../common/inputs/Input";
 import { GroupChat } from "../../components/Groups/GroupChat";
+import { Modal } from "../../components/modal/Modal";
 import { NoChats } from "../../components/noChats/NoChats";
 import { logOut } from "../../redux/thunks/authUserThunk";
 import { LeftSideBarTitle } from "./LeftSideBarStyled";
@@ -22,7 +24,9 @@ export const LeftSideBar = () => {
   };
   return (
     <>
+
       <ContainerLeftSideBar>
+      
         <LeftSideBarTitle>Scriv</LeftSideBarTitle>
         <InputLeftSideBar placeholder="Search" />
 
@@ -30,24 +34,13 @@ export const LeftSideBar = () => {
 
         {/*  <GroupChatContainer>
           <GroupChat />
-          <GroupChat />
-          <GroupChat />
-          <GroupChat />
-          <GroupChat />
-          <GroupChat />
-          <GroupChat />
-          <GroupChat />
-          <GroupChat />
-          <GroupChat />
-          <GroupChat />
-          <GroupChat />
-          <GroupChat />
-
         </GroupChatContainer> */}
 
-        <OutlinedButton>Create new chat group</OutlinedButton>
+        <ContainerButton>
+          <OutlinedButton>Create new chat group</OutlinedButton>
 
-        <button onClick={handleLogout}>log Out</button> 
+          <Button onClick={handleLogout}>log Out</Button>
+        </ContainerButton>
       </ContainerLeftSideBar>
     </>
   );

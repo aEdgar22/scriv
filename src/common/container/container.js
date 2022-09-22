@@ -51,8 +51,7 @@ export const ContainerButton = styled(Container)`
 
 export const ContainerLeftSideBar = styled(Container)`
   width: 100%;
-  border: 1px solid red;
-  align-items: flex-start;
+  /* border: 1px solid red; */
   padding: 1rem;
   height: 100vh;
 `;

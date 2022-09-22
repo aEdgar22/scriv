@@ -11,6 +11,7 @@ export const Button = styled.button`
   border-radius: 16px;
   border: none;
   cursor: pointer;
+  color: #3d3d3d;
   font-weight: 600;
   font-size: 18px;
   width: ${({ size }) =>
