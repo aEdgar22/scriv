@@ -16,12 +16,9 @@ import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import LogoGoogle from "../../../assets/google-logo.svg";
 
-
-
 export const LoginScreen = () => {
   const { uid } = useSelector((state) => state.auth);
   const { isLoading } = useSelector((state) => state.ui);
-
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -41,10 +38,10 @@ export const LoginScreen = () => {
     dispatch(loginUserEmailPassword(email, password));
   };
 
-  const handleGoogleLogin = (e) =>{
+  const handleGoogleLogin = (e) => {
     e.preventDefault();
-    dispatch(loginWithGoogle())
-  }
+    dispatch(loginWithGoogle());
+  };
 
   //efecto que escucha si hay uid navega a home o login
   useEffect(() => {
@@ -59,7 +56,7 @@ export const LoginScreen = () => {
         <p>Where and when you want.</p>
       </Container>
 
-      <form onSubmit={handleLogin} >
+      <form onSubmit={handleLogin}>
         <ContainerInput>
           <Input
             type="email"
@@ -84,12 +81,7 @@ export const LoginScreen = () => {
               <img src={LogoGoogle} alt="" />
               Continue with Google
             </OutlinedButton>
-            <LoginButton
-              disabled={isLoading}
-            >
-              Log in
-            
-            </LoginButton>
+            <LoginButton disabled={isLoading}>Log in</LoginButton>
             <span id="labelSignUp">
               You don't have an account?{" "}
               <Link id="linkSignUp" to="/auth/register">

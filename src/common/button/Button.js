@@ -28,8 +28,8 @@ export const LoginButton = styled(Button)`
   background-color: ${getColor("lilaColor")};
   color: ${getColor("mainColor")};
 
-  &:active{
-    background-color: ${({theme}) => theme.colors.activeButtonColor};
+  &:active {
+    background-color: ${({ theme }) => theme.colors.activeButtonColor};
   }
 `;
 
@@ -42,4 +42,14 @@ export const OutlinedButton = styled(Button)`
   justify-content: center;
   align-items: center;
   column-gap: 8px;
+`;
+
+export const BotonCerrar = styled(Button)`
+  position: absolute;
+  top: 0.8rem;
+  right: 1.25rem;
+  width: 1.875rem;
+  height: 1.875rem;
+  color: ${getColor("textInputColor")};
+  background: none;
 `;

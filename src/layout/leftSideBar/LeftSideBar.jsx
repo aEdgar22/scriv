@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Button, OutlinedButton } from "../../common/button/Button";
 import {
@@ -9,24 +10,22 @@ import {
 import { InputLeftSideBar } from "../../common/inputs/Input";
 import { GroupChat } from "../../components/Groups/GroupChat";
 import { Modal } from "../../components/modal/Modal";
+import { Contenido } from "../../components/modal/modalStyled";
 import { NoChats } from "../../components/noChats/NoChats";
 import { logOut } from "../../redux/thunks/authUserThunk";
 import { LeftSideBarTitle } from "./LeftSideBarStyled";
 
 export const LeftSideBar = () => {
-  /*   const { userName } = useSelector((state) => state.auth); */
-  /*   const navigate = useNavigate(); */
+  const [modalActive, setModalActive] = useState(false);
+
   const dispatch = useDispatch();
 
   const handleLogout = () => {
-    //handle del logout de la app
     dispatch(logOut());
   };
   return (
     <>
-
       <ContainerLeftSideBar>
-      
         <LeftSideBarTitle>Scriv</LeftSideBarTitle>
         <InputLeftSideBar placeholder="Search" />
 
@@ -37,10 +36,23 @@ export const LeftSideBar = () => {
         </GroupChatContainer> */}
 
         <ContainerButton>
-          <OutlinedButton>Create new chat group</OutlinedButton>
+          <OutlinedButton
+            onClick={() => setModalActive(!modalActive)}
+            
+          >Create new chat group</OutlinedButton>
 
           <Button onClick={handleLogout}>log Out</Button>
         </ContainerButton>
+
+        <Modal
+          active={modalActive}
+          handleActive={setModalActive}
+        >
+          <Contenido>
+            <InputLeftSideBar type="text" placeholder="Nombre" />
+            <OutlinedButton>aceptar</OutlinedButton>
+          </Contenido>
+        </Modal>
       </ContainerLeftSideBar>
     </>
   );

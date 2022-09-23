@@ -54,12 +54,15 @@ export const ContainerLeftSideBar = styled(Container)`
   /* border: 1px solid red; */
   padding: 1rem;
   height: 100vh;
+
+  @media (min-width: 768px) {
+    width: 30%;
+  }
 `;
 
 export const GroupChatContainer = styled(Container)`
   width: 100%;
   row-gap: 2.5rem;
-  /* border: 1px solid red; */
   overflow: auto;
   height: 60%;
   margin-bottom: 15%;
