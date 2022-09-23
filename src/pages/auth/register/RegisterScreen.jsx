@@ -60,40 +60,6 @@ export const RegisterScreen = () => {
     }
   };
 
-  /* const validForm = () => {
-    if (userName.trim().length === 0) {
-      dispatch(
-        setError({
-          error: true,
-          msgError: "name is required",
-        })
-      );
-      return false;
-    }
-
-    if (!validator.isEmail(email)) {
-      dispatch(
-        setError({
-          error: true,
-          msgError: "email is invalid",
-        })
-      );
-      return false;
-    }
-
-    if (password.length < 5) {
-      dispatch(
-        setError({
-          error: true,
-          msgError: "password should be at least 6 characters",
-        })
-      );
-      return false;
-    }
-
-    return true;
-  }; */
-
   useEffect(() => {
     // consultar useMemo
     uid ? navigate("/") : navigate("/auth/register");

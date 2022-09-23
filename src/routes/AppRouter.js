@@ -12,11 +12,10 @@ import { auth } from "../firebase/config";
 import { useDispatch } from "react-redux";
 import { setUser } from "../redux/slices/userSlice";
 import { ProtectedRoute } from "./ProtectedRoute";
-import { LogoStyled } from "../common/logo/logo";
 import "animate.css";
+import { LoadingApp } from "../components/loadings/LoadingApp";
 
 export const AppRouter = () => {
-  
   const [checking, setChecking] = useState(true);
 
   const dispatch = useDispatch();
@@ -36,7 +35,7 @@ export const AppRouter = () => {
   }, [dispatch]);
 
   if (checking) {
-    return <LogoStyled/>;
+    return <LoadingApp />;
   }
 
   return (

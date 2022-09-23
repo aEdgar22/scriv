@@ -36,21 +36,19 @@ export const LeftSideBar = () => {
         </GroupChatContainer> */}
 
         <ContainerButton>
-          <OutlinedButton
-            onClick={() => setModalActive(!modalActive)}
-            
-          >Create new chat group</OutlinedButton>
+          <OutlinedButton onClick={() => setModalActive(!modalActive)}>
+            Create new chat group
+          </OutlinedButton>
 
           <Button onClick={handleLogout}>log Out</Button>
         </ContainerButton>
 
-        <Modal
-          active={modalActive}
-          handleActive={setModalActive}
-        >
+        <Modal active={modalActive} handleActive={setModalActive}>
           <Contenido>
-            <InputLeftSideBar type="text" placeholder="Nombre" />
-            <OutlinedButton>aceptar</OutlinedButton>
+            <InputLeftSideBar type="text" placeholder="Name of your group" />
+            <OutlinedButton onClick={() => setModalActive(!modalActive)}>
+              aceptar
+            </OutlinedButton>
           </Contenido>
         </Modal>
       </ContainerLeftSideBar>

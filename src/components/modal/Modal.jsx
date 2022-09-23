@@ -7,7 +7,7 @@ export const Modal = ({ children, active, handleActive }) => {
     <>
       {active && (
         <Overlay>
-          <ModalContainer className="animate__animated animate__fadeIn">
+          <ModalContainer className="animate__animated animate__fadeInDown">
             <EncabezadoModal>
               <h3>Create your group!</h3>
             </EncabezadoModal>

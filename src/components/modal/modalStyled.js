@@ -33,14 +33,12 @@ export const EncabezadoModal = styled.div`
   h3 {
     font-weight: 500;
     font-size: 1rem;
-    color: ${({ theme }) => theme.colors.textInputColor };
+    color: ${({ theme }) => theme.colors.textInputColor};
   }
 `;
-
 
 export const Contenido = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
 `;
