@@ -1,27 +1,27 @@
 import validator from "validator";
 
-export const validForm = (userName = "", email = "", password = '') => {
+export const validForm = (userName = "", email = "", password = "") => {
   if (userName?.trim().length === 0) {
     return {
-      state: false,
-      error: true,
-      msgError: "name is required",
+      stateError: false,
+      errorForm: true,
+      messgError: "Name is required",
     };
   }
 
   if (!validator.isEmail(email)) {
     return {
-      state: false,
-      error: true,
-      msgError: "email is invalid",
+      stateError: false,
+      errorForm: true,
+      messgError: "Email is invalid",
     };
   }
 
   if (password.length < 5) {
     return {
-      state: false,
-      error: true,
-      msgError: "password should be at least 6 characters",
+      stateError: false,
+      errorForm: true,
+      messgError: "Password should be at least 6 characters",
     };
   }
 

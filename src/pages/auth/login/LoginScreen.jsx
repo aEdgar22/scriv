@@ -3,6 +3,7 @@ import {
   Container,
   ContainerButton,
   ContainerInput,
+  TextLogo,
 } from "../../../common/container/container";
 import { LogoStyled } from "../../../common/logo/logo";
 import { useForm } from "../../../hooks/useForm";
@@ -15,27 +16,34 @@ import {
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import LogoGoogle from "../../../assets/google-logo.svg";
+import { Error } from "../../../components/errors/Error";
+import { setError } from "../../../redux/slices/uiSlice";
 
 export const LoginScreen = () => {
-  const { uid } = useSelector((state) => state.auth);
-  const { isLoading } = useSelector((state) => state.ui);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  //utiliza hook useForm para manejar state de los inputs
+  const { uid } = useSelector((state) => state.auth);
+  const { isLoading } = useSelector((state) => state.ui);
+  const { error, msgError } = useSelector((state) => state.ui);
+
   const [formValues, handleInputChange] = useForm({
     email: "abel@gmail.com",
     password: "123456",
   });
-
-  //destructuro valores de formValues
   const { email, password } = formValues;
 
   const handleLogin = (e) => {
     e.preventDefault();
-    //enviando informacion usuario a thunk de login
+
     dispatch(loginUserEmailPassword(email, password));
+
+    dispatch(
+      setError({
+        error: false,
+        msgError: null,
+      })
+    );
   };
 
   const handleGoogleLogin = (e) => {
@@ -43,9 +51,7 @@ export const LoginScreen = () => {
     dispatch(loginWithGoogle());
   };
 
-  //efecto que escucha si hay uid navega a home o login
   useEffect(() => {
-    // consultar useMemo
     uid ? navigate("/") : navigate("/auth/login");
   }, [uid, navigate]);
 
@@ -53,7 +59,7 @@ export const LoginScreen = () => {
     <>
       <Container>
         <LogoStyled sm></LogoStyled>
-        <p>Where and when you want.</p>
+        <TextLogo>Where and when you want.</TextLogo>
       </Container>
 
       <form onSubmit={handleLogin}>
@@ -75,6 +81,8 @@ export const LoginScreen = () => {
             onChange={handleInputChange}
             autoComplete="off"
           />
+
+          {error && <Error>{msgError}</Error>}
 
           <ContainerButton>
             <OutlinedButton onClick={handleGoogleLogin}>

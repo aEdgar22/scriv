@@ -6,7 +6,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import { HomeChats } from "../pages/homeChats/HomeChats";
+/* import { HomeChats } from "../pages/homeChats/HomeChats"; */
 import { AuthRouter } from "./AuthRouter";
 import { auth } from "../firebase/config";
 import { useDispatch } from "react-redux";
@@ -14,6 +14,7 @@ import { setUser } from "../redux/slices/userSlice";
 import { ProtectedRoute } from "./ProtectedRoute";
 import "animate.css";
 import { LoadingApp } from "../components/loadings/LoadingApp";
+import { HomeScreen } from "../pages/home/HomeScreen";
 
 export const AppRouter = () => {
   const [checking, setChecking] = useState(true);
@@ -48,7 +49,7 @@ export const AppRouter = () => {
           path="/"
           element={
             <ProtectedRoute>
-              <HomeChats />
+              <HomeScreen/>
             </ProtectedRoute>
           }
         />

@@ -6,11 +6,7 @@ export const Container = styled.div`
   align-items: center;
   width: fit-content;
 
-  p {
-    display: none;
-  }
-
-  @media (min-width: 768px) {
+  /* @media (min-width: 768px) {
     p {
       display: block;
       width: 270px;
@@ -22,7 +18,23 @@ export const Container = styled.div`
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-  }
+  } */
+`;
+
+export const TextLogo = styled.p`
+  display: none;
+  @media (min-width: 768px) {
+    
+      display: block;
+      width: 270px;
+      height: fit-content;
+      font-weight: ${({ theme }) => theme.fontWeight.weightBlack};
+      font-size: 40px;
+      background: linear-gradient(180deg, #8d9cf4 38.89%, #7bcdd1 62.78%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 `;
 
 export const ContainerInput = styled(Container)`
@@ -58,12 +70,4 @@ export const ContainerLeftSideBar = styled(Container)`
   @media (min-width: 768px) {
     width: 30%;
   }
-`;
-
-export const GroupChatContainer = styled(Container)`
-  width: 100%;
-  row-gap: 2.5rem;
-  overflow: auto;
-  height: 60%;
-  margin-bottom: 15%;
 `;

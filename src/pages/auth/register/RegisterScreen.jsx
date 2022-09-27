@@ -10,20 +10,21 @@ import {
   Container,
   ContainerInput,
   ContainerButton,
+  TextLogo,
 } from "../../../common/container/container";
 import LogoGoogle from "../../../assets/google-logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { setError } from "../../../redux/slices/uiSlice";
 import { validForm } from "../../../helpers/validForm";
+import { Error } from "../../../components/errors/Error";
 
 export const RegisterScreen = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  //tomando valores del store
   const { uid } = useSelector((state) => state.auth);
 
-  /*   const { error, msgError } = useSelector((state) => state.ui);  */ //mostrar mensajes al usuario
+  const { error, msgError } = useSelector((state) => state.ui);
 
   //utiliza hook useForm para manejar state de los inputs
   const [formValues, handleInputChange] = useForm({
@@ -33,17 +34,21 @@ export const RegisterScreen = () => {
   });
   const { email, password, userName } = formValues;
 
-  const { state, error, msgError } = validForm(userName, email, password);
+  const { stateError, errorForm, messgError } = validForm(
+    userName,
+    email,
+    password
+  );
 
   const handleLogin = (e) => {
     e.preventDefault();
 
     //validacion campos del formulario
-    if (state === false) {
+    if (stateError === false) {
       dispatch(
         setError({
-          error: error,
-          msgError: msgError,
+          error: errorForm,
+          msgError: messgError,
         })
       );
     } else {
@@ -69,7 +74,7 @@ export const RegisterScreen = () => {
     <>
       <Container>
         <LogoStyled sm></LogoStyled>
-        <p>Where and when you want.</p>
+        <TextLogo>Where and when you want.</TextLogo>
       </Container>
 
       <form onSubmit={handleLogin}>
@@ -100,6 +105,7 @@ export const RegisterScreen = () => {
             onChange={handleInputChange}
             autoComplete="off"
           />
+          {error && <Error>{msgError}</Error>}
 
           <ContainerButton size="sizeContainerButton">
             <OutlinedButton>
