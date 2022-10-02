@@ -5,36 +5,14 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   width: fit-content;
-
-  /* @media (min-width: 768px) {
-    p {
-      display: block;
-      width: 270px;
-      height: fit-content;
-      font-weight: ${({ theme }) => theme.fontWeight.weightBlack};
-      font-size: 40px;
-      background: linear-gradient(180deg, #8d9cf4 38.89%, #7bcdd1 62.78%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-  } */
 `;
 
-export const TextLogo = styled.p`
-  display: none;
-  @media (min-width: 768px) {
-    
-      display: block;
-      width: 270px;
-      height: fit-content;
-      font-weight: ${({ theme }) => theme.fontWeight.weightBlack};
-      font-size: 40px;
-      background: linear-gradient(180deg, #8d9cf4 38.89%, #7bcdd1 62.78%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+export const RowFlexContainer = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: ${(props) =>
+    props.sb ? "space-between" : props.sa ? "space-around" : "space-evenly"};
 `;
 
 export const ContainerInput = styled(Container)`
@@ -52,22 +30,11 @@ export const ContainerInput = styled(Container)`
 `;
 
 export const ContainerButton = styled(Container)`
-  margin-top: 3rem;
+
   row-gap: 0.75rem;
 
   @media (min-width: 768px) {
     padding: 1.5rem;
     row-gap: 1.25rem;
-  }
-`;
-
-export const ContainerLeftSideBar = styled(Container)`
-  width: 100%;
-  /* border: 1px solid red; */
-  padding: 1rem;
-  height: 100vh;
-
-  @media (min-width: 768px) {
-    width: 30%;
   }
 `;

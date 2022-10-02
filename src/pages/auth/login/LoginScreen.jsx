@@ -1,11 +1,8 @@
 import React, { useEffect } from "react";
 import {
-  Container,
   ContainerButton,
   ContainerInput,
-  TextLogo,
 } from "../../../common/container/container";
-import { LogoStyled } from "../../../common/logo/logo";
 import { useForm } from "../../../hooks/useForm";
 import { Input } from "../../../common/inputs/Input";
 import { LoginButton, OutlinedButton } from "../../../common/button/Button";
@@ -18,6 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import LogoGoogle from "../../../assets/google-logo.svg";
 import { Error } from "../../../components/errors/Error";
 import { setError } from "../../../redux/slices/uiSlice";
+import { Logo } from "../../../common/logo/Logo";
 
 export const LoginScreen = () => {
   const dispatch = useDispatch();
@@ -57,12 +55,9 @@ export const LoginScreen = () => {
 
   return (
     <>
-      <Container>
-        <LogoStyled sm></LogoStyled>
-        <TextLogo>Where and when you want.</TextLogo>
-      </Container>
+      <Logo />
 
-      <form onSubmit={handleLogin}>
+      <form onSubmit={handleLogin} className="animate__animated animate__fadeIn">
         <ContainerInput>
           <Input
             type="email"

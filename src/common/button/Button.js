@@ -14,13 +14,11 @@ export const Button = styled.button`
   color: #3d3d3d;
   font-weight: 600;
   font-size: 18px;
-  width: ${({ size }) =>
-    size === "sm" ? "16rem" : "lg" ? "16.5rem" : "10rem"};
-  height: ${({ size }) =>
-    size === "sm" ? "2.375rem" : "lg" ? "2.375rem" : "8rem"};
+  width: 100%;
   padding: 6px 16px;
   text-align: center;
   transition-duration: 300ms;
+
 `;
 
 //estilos boton login y registro
@@ -29,6 +27,9 @@ export const LoginButton = styled(Button)`
   color: ${getColor("mainColor")};
 
   &:active {
+    background-color: ${({ theme }) => theme.colors.activeButtonColor};
+  }
+  &:hover {
     background-color: ${({ theme }) => theme.colors.activeButtonColor};
   }
 `;
@@ -42,6 +43,7 @@ export const OutlinedButton = styled(Button)`
   justify-content: center;
   align-items: center;
   column-gap: 8px;
+
 `;
 
 export const BotonCerrar = styled(Button)`
@@ -52,4 +54,13 @@ export const BotonCerrar = styled(Button)`
   height: 1.875rem;
   color: ${getColor("textInputColor")};
   background: none;
+`;
+
+export const LogOutButton = styled(OutlinedButton)`
+  width: 50%;
+  max-width: 7.5rem;
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.activeButtonColor};
+    color: ${({ theme }) => theme.colors.mainColor};
+  }
 `;

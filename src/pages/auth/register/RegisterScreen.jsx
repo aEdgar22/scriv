@@ -4,19 +4,16 @@ import { useForm } from "../../../hooks/useForm";
 import { registerUser } from "../../../redux/thunks/authUserThunk";
 import { useDispatch, useSelector } from "react-redux";
 import { Input } from "../../../common/inputs/Input";
-import { LoginButton, OutlinedButton } from "../../../common/button/Button";
-import { LogoStyled } from "../../../common/logo/logo";
+import { LoginButton } from "../../../common/button/Button";
 import {
-  Container,
   ContainerInput,
   ContainerButton,
-  TextLogo,
 } from "../../../common/container/container";
-import LogoGoogle from "../../../assets/google-logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { setError } from "../../../redux/slices/uiSlice";
 import { validForm } from "../../../helpers/validForm";
 import { Error } from "../../../components/errors/Error";
+import { Logo } from "../../../common/logo/Logo";
 
 export const RegisterScreen = () => {
   const navigate = useNavigate();
@@ -72,12 +69,9 @@ export const RegisterScreen = () => {
 
   return (
     <>
-      <Container>
-        <LogoStyled sm></LogoStyled>
-        <TextLogo>Where and when you want.</TextLogo>
-      </Container>
+      <Logo />
 
-      <form onSubmit={handleLogin}>
+      <form onSubmit={handleLogin} className="animate__animated animate__fadeIn">
         <ContainerInput size="sizeContainerInput">
           <Input
             type="text"
@@ -108,10 +102,7 @@ export const RegisterScreen = () => {
           {error && <Error>{msgError}</Error>}
 
           <ContainerButton size="sizeContainerButton">
-            <OutlinedButton>
-              <img src={LogoGoogle} alt="" />
-              Continue with Google
-            </OutlinedButton>
+           
             <LoginButton>Sign Up</LoginButton>
             <span id="labelSignUp">
               Already have an account?{" "}

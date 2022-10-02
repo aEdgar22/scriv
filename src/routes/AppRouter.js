@@ -6,7 +6,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-/* import { HomeChats } from "../pages/homeChats/HomeChats"; */
+
 import { AuthRouter } from "./AuthRouter";
 import { auth } from "../firebase/config";
 import { useDispatch } from "react-redux";
@@ -49,7 +49,7 @@ export const AppRouter = () => {
           path="/"
           element={
             <ProtectedRoute>
-              <HomeScreen/>
+              <HomeScreen />
             </ProtectedRoute>
           }
         />

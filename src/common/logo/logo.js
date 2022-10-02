@@ -11,6 +11,25 @@ export const LogoStyled = styled.img`
   }
 `;
 
+export const TextLogo = styled.p`
+  display: none;
+  @media (min-width: 768px) {
+    display: block;
+    text-align: center;
+    letter-spacing: 2px;
+    width: 16rem;
+
+    
+    height: fit-content;
+    font-weight: ${({ theme }) => theme.fontWeight.weightBlack};
+    font-size: 40px;
+    background: linear-gradient(180deg, #8d9cf4 38.89%, #7bcdd1 62.78%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+`;
+
 LogoStyled.defaultProps = {
   src: urlLogo,
 };

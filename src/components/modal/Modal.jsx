@@ -9,7 +9,7 @@ export const Modal = ({ children, active, handleActive }) => {
         <Overlay>
           <ModalContainer className="animate__animated animate__fadeInDown">
             <EncabezadoModal>
-              <h3>Create your group!</h3>
+              <h3>New Scriv!</h3>
             </EncabezadoModal>
 
             <BotonCerrar onClick={() => handleActive(!active)}>
