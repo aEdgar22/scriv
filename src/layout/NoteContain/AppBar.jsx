@@ -8,7 +8,7 @@ export const AppBar = () => {
         <span>22 September of 2022</span>
 
         <div>
-            <button>save</button>
+            <button>save scriv</button>
         </div>
     </NotesAppBar>
   )

@@ -15,6 +15,8 @@ import { ProtectedRoute } from "./ProtectedRoute";
 import "animate.css";
 import { LoadingApp } from "../components/loadings/LoadingApp";
 import { HomeScreen } from "../pages/home/HomeScreen";
+import { loadNotes } from "../services/notes/loadNotes";
+import { setCurrentNotes } from "../redux/thunks/notesThunk";
 
 export const AppRouter = () => {
   const [checking, setChecking] = useState(true);
@@ -22,7 +24,7 @@ export const AppRouter = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(auth, async (user) => {
       if (user?.uid) {
         dispatch(
           setUser({
@@ -30,6 +32,9 @@ export const AppRouter = () => {
             userName: user.displayName,
           })
         );
+
+        const notes = await loadNotes(user.uid);
+        dispatch(setCurrentNotes(notes));
       }
       setChecking(false);
     });

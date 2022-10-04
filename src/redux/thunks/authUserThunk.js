@@ -9,7 +9,6 @@ import {
   GoogleAuthProvider,
 } from "firebase/auth";
 import { auth } from "../../firebase/config";
-import { createUser } from "../../services/users/createUser";
 
 export const registerUser = (email, password, userName) => {
   return async (dispatch) => {
@@ -30,8 +29,6 @@ export const registerUser = (email, password, userName) => {
           userName: user.displayName,
         })
       );
-
-      createUser(user);
     } catch (error) {
       dispatch(
         setError({

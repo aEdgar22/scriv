@@ -11,7 +11,7 @@ export const LefSideBarStyled = styled.aside`
   border-right: 2px solid ${({ theme }) => theme.colors.lilaColor};
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  box-shadow: 1px 0px 20px 1px ${({ theme }) => theme.colors.lilaColor};
+  box-shadow: 1px 0px 15px 1px ${({ theme }) => theme.colors.lilaColor};
   
 
   header {

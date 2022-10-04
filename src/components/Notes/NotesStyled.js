@@ -27,4 +27,5 @@ export const NoteItemStyled = styled.div`
   width: 100%;
   border: solid 1px ${({ theme }) => theme.colors.lilaColor};
   border-radius: 10px;
+  cursor: pointer;
 `;
