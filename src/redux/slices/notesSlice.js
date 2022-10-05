@@ -9,19 +9,23 @@ const notesSlice = createSlice({
   name: "notes",
   initialState,
   reducers: {
-    addNewNote(state, action) {},
     setActiveNote(state, action) {
       state.active = action.payload.activeNote;
     },
     loadNotes(state, action) {
       state.notes = action.payload.notes;
     },
-    updateNotes(state, action) {},
+    /* updateNotes(state, action) {
+      state.notes = state.notes.map((note) => {
+        note.id === action.payload.noteId ? action.payload.note : note;
+      });
+    }, */
     deleteNotes(state, action) {},
+
     logoutCleaning(state, action) {},
   },
 });
 
-export const {setActiveNote, loadNotes} = notesSlice.actions;
+export const { setActiveNote, loadNotes, updateNotes } = notesSlice.actions;
 
 export default notesSlice.reducer;

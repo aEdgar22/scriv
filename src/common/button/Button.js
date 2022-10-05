@@ -56,6 +56,14 @@ export const BotonCerrar = styled(Button)`
   background: none;
 `;
 
+export const DeleteButton = styled(Button)`
+  background-color: #E63946;
+  border-radius: 0px;
+  color: ${({theme}) => theme.colors.mainColor};
+  
+
+`;
+
 export const LogOutButton = styled(OutlinedButton)`
   width: 50%;
   max-width: 7.5rem;

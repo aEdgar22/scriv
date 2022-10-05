@@ -9,7 +9,7 @@ export const NoteForm = styled.div`
   display: flex;
   flex-direction: column;
   height: 90%;
-  padding: 2rem;
+  padding: 1rem;
   color: ${({ theme }) => theme.colors.inputTextColor};
 
   input,
