@@ -16,7 +16,7 @@ export const SideBard = () => {
   };
 
   const handleNewNote = () => {
-    dispatch( startNewNote());
+    dispatch(startNewNote());
   };
 
   return (
@@ -35,14 +35,6 @@ export const SideBard = () => {
 
         <NotesCard />
 
-        {/*   
-        <Modal
-          active={activeModal}
-          handleActive={setActiveModal}
-        >
-          <InputLeftSideBar placeholder="Title"/>
-          <Button passcolor="red">Create</Button>
-        </Modal> */}
 
         <OutlinedButton onClick={handleNewNote}>
           Create new Scriv

@@ -12,10 +12,10 @@ export const NotesContainer = styled.div`
   border: solid 1px ${({ theme }) => theme.colors.borderBoxColor};
   border-radius: 8px;
 
-  p{
+  p {
     font-size: 24px;
     font-weight: 600;
-    color: ${({theme}) => theme.colors.textInputColor};
+    color: ${({ theme }) => theme.colors.textInputColor};
   }
 `;
 
@@ -28,4 +28,23 @@ export const NoteItemStyled = styled.div`
   border: solid 1px ${({ theme }) => theme.colors.lilaColor};
   border-radius: 10px;
   cursor: pointer;
+
+  .note_body,
+  .note_date {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 5px;
+  }
+
+  .note_body h4 {
+    color: #3d3d3d;
+  }
+
+  .note_date {
+    width: 20%;
+    color: #3d3d3d;
+  }
 `;

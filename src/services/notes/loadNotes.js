@@ -12,6 +12,8 @@ export const loadNotes = async (uid) => {
         ...snap.data(),
       });
     });
+
+
     return notes;
   } catch (error) {
     console.log(error);

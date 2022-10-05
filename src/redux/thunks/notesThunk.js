@@ -1,4 +1,5 @@
 import { createNewNote } from "../../services/notes/createNewNote";
+import { saveNote } from "../../services/notes/saveNote";
 import { loadNotes, setActiveNote } from "../slices/notesSlice";
 
 export const startNewNote = () => {
@@ -18,7 +19,7 @@ export const startNewNote = () => {
         setActiveNote({
           activeNote: {
             id: respDoc.id,
-            note: newNote,
+            ...newNote
           },
         })
       );
@@ -35,5 +36,18 @@ export const setCurrentNotes = (notes) => {
         notes: notes,
       })
     );
+  };
+};
+
+export const startSaveNote = (note) => {
+  return async (dispatch, getState) => {
+    const uid = getState().auth.uid;
+
+    const noteToFirebase = { ...note };
+    delete noteToFirebase.id;
+
+    const resp = await saveNote(note.id,uid, noteToFirebase);
+
+    console.log(resp)
   };
 };

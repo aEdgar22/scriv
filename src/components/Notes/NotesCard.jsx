@@ -13,7 +13,7 @@ export const NotesCard = () => {
             <p>Let's start creating great things!</p>
           </>
         ) : (
-          notes.map((note) => <NoteItem key={note.id} />)
+          notes.map((note) => <NoteItem key={note.id} {...note} />)
         )}
       </NotesContainer>
     </>

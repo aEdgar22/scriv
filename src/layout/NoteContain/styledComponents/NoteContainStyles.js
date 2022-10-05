@@ -10,6 +10,7 @@ export const NoteForm = styled.div`
   flex-direction: column;
   height: 90%;
   padding: 2rem;
+  color: ${({ theme }) => theme.colors.inputTextColor};
 
   input,
   textarea {
@@ -21,14 +22,12 @@ export const NoteForm = styled.div`
   }
 
   input {
-    color: ${({ theme }) => theme.colors.inputTextColor};
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 0.8rem;
   }
 
   textarea {
-    color: ${({ theme }) => theme.colors.inputTextColor};
     font-size: 1.5rem;
     padding: 1rem;
     flex: 1 1 auto;
