@@ -1,6 +1,5 @@
 import { useDispatch } from "react-redux";
 import { LogOutButton, OutlinedButton } from "../../common/button/Button";
-import { InputLeftSideBar } from "../../common/inputs/Input";
 import { NotesCard } from "../../components/Notes/NotesCard";
 import { logOut } from "../../redux/thunks/authUserThunk";
 import { startNewNote } from "../../redux/thunks/notesThunk";
@@ -27,11 +26,11 @@ export const SideBard = () => {
           <LogOutButton onClick={handleLogout}>Logout</LogOutButton>
         </header>
 
-        <InputLeftSideBar
+{/*         <InputLeftSideBar
           type="text"
           name="searchNote"
           placeholder="Search scriv"
-        />
+        /> */}
 
         <NotesCard />
 
