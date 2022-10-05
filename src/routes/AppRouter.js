@@ -15,7 +15,7 @@ import { ProtectedRoute } from "./ProtectedRoute";
 import "animate.css";
 import { LoadingApp } from "../components/loadings/LoadingApp";
 import { HomeScreen } from "../pages/home/HomeScreen";
-import { loadNotes } from "../services/notes/loadNotes";
+import { loadNotesFirestore } from "../services/notes/loadNotes";
 import { setCurrentNotes } from "../redux/thunks/notesThunk";
 
 export const AppRouter = () => {
@@ -26,15 +26,15 @@ export const AppRouter = () => {
   useEffect(() => {
     onAuthStateChanged(auth, async (user) => {
       if (user?.uid) {
+        const notes = await loadNotesFirestore(user.uid);
+        dispatch(setCurrentNotes(notes));
+        
         dispatch(
           setUser({
             uid: user.uid,
             userName: user.displayName,
           })
         );
-
-        const notes = await loadNotes(user.uid);
-        dispatch(setCurrentNotes(notes));
       }
       setChecking(false);
     });

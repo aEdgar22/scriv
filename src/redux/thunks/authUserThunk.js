@@ -9,6 +9,7 @@ import {
   GoogleAuthProvider,
 } from "firebase/auth";
 import { auth } from "../../firebase/config";
+import { logoutCleaning } from "../slices/notesSlice";
 
 export const registerUser = (email, password, userName) => {
   return async (dispatch) => {
@@ -83,6 +84,8 @@ export const loginUserEmailPassword = (email, password) => {
 export const logOut = () => {
   return async (dispatch) => {
     await signOut(auth);
+
+    dispatch(logoutCleaning());
 
     dispatch(
       setUser({

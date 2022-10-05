@@ -20,12 +20,18 @@ const notesSlice = createSlice({
         note.id === action.payload.noteId ? action.payload.note : note;
       });
     }, */
-    deleteNotes(state, action) {},
 
-    logoutCleaning(state, action) {},
+    deleteNoteReducer(state) {
+      state.active = null;
+    },
+
+    logoutCleaning(state) {
+      state.active = null;
+      state.notes = [];
+    },
   },
 });
 
-export const { setActiveNote, loadNotes, updateNotes } = notesSlice.actions;
+export const { setActiveNote, loadNotes, updateNotes, logoutCleaning, deleteNoteReducer } = notesSlice.actions;
 
 export default notesSlice.reducer;

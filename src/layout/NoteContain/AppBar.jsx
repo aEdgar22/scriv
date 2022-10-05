@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { startSaveNote } from "../../redux/thunks/notesThunk";
+import { startSaveNote   } from "../../redux/thunks/notesThunk";
 import { NotesAppBar } from "./styledComponents/AppBarStyled";
 import moment from "moment";
 
@@ -11,6 +11,7 @@ export const AppBar = () => {
 
   const handleSave = () => {
     dispatch(startSaveNote(note));
+
   };
 
   return (

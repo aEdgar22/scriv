@@ -1,7 +1,13 @@
+import Swal from "sweetalert2";
 import { createNewNote } from "../../services/notes/createNewNote";
 import { deleteNoteFromFirestore } from "../../services/notes/deleteNoteFromFirestore";
+import { loadNotesFirestore } from "../../services/notes/loadNotes";
 import { saveNote } from "../../services/notes/saveNote";
-import { loadNotes, setActiveNote, updateNotes } from "../slices/notesSlice";
+import {
+  deleteNoteReducer,
+  loadNotes,
+  setActiveNote,
+} from "../slices/notesSlice";
 
 export const startNewNote = () => {
   return async (dispatch, getState) => {
@@ -31,7 +37,7 @@ export const startNewNote = () => {
 };
 
 export const setCurrentNotes = (notes) => {
-  return async (dispatch) => {
+  return (dispatch) => {
     dispatch(
       loadNotes({
         notes: notes,
@@ -46,20 +52,27 @@ export const startSaveNote = (note) => {
 
     const noteToFirebase = { ...note };
     delete noteToFirebase.id;
-
     const resp = await saveNote(note.id, uid, noteToFirebase);
 
-  
+    Swal.fire("Saved Scriv", note.title, "success");
+
+    if (resp) {
+      const notes = await loadNotesFirestore(uid);
+      dispatch(setCurrentNotes(notes));
+    }
   };
 };
 
 export const deleteNote = (noteId) => {
   return async (dispatch, getState) => {
     const uid = getState().auth.uid;
+    const resp = await deleteNoteFromFirestore(noteId, uid);
+    Swal.fire("Deleted Scriv", "success");
 
-    const resp = await deleteNoteFromFirestore(noteId, uid)
-
-    console.log(resp)
-
+    if (resp) {
+      const notes = await loadNotesFirestore(uid);
+      dispatch(setCurrentNotes(notes));
+      dispatch(deleteNoteReducer());
+    }
   };
 };
