@@ -31,4 +31,7 @@ export const InputLeftSideBar = styled(Input)`
   width: 100%;
   height: 40px;
   margin-bottom: 1.875rem;
+  &:focus {
+    border: solid 1px ${({theme}) => theme.colors.cyanColor};
+  }
 `;
