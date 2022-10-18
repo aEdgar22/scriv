@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { LogOutButton, OutlinedButton } from "../../common/button/Button";
-import { NotesCard } from "../../components/Notes/NotesCard";
+import NotesCard from "../../components/Notes/NotesCard";
 import { logOut } from "../../redux/thunks/authUserThunk";
 import { startNewNote } from "../../redux/thunks/notesThunk";
 
@@ -27,9 +27,7 @@ const SideBard = () => {
           <LogOutButton onClick={handleLogout}>Logout</LogOutButton>
         </header>
 
-
         <NotesCard />
-
 
         <OutlinedButton onClick={handleNewNote}>
           Create new Scriv
@@ -39,4 +37,4 @@ const SideBard = () => {
   );
 };
 
-export default React.memo(SideBard)
+export default React.memo(SideBard);

@@ -30,9 +30,16 @@ const NoteScreen = () => {
     }
   }, [note, reset]);
 
-  useEffect(() => {
-    dispatch(setActiveNote({ activeNote: { ...formValues } }));
-  }, [formValues, dispatch]);
+
+    useCallback(
+      () => {
+        dispatch(setActiveNote({ activeNote: { ...formValues } }));
+      },
+      [formValues, dispatch],
+    )
+    
+   
+
 
   return (
     <NoteContainer className="animate__animated animate__fadeIn">
