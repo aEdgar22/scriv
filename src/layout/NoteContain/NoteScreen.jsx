@@ -2,15 +2,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppBar } from "./AppBar";
 import { NoteContainer, NoteForm } from "./styledComponents/NoteContainStyles";
 import { useForm } from "../../hooks/useForm";
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { setActiveNote } from "../../redux/slices/notesSlice";
 import { DeleteButton } from "../../common/button/Button";
 import { deleteNote } from "../../redux/thunks/notesThunk";
+import { useCallback } from "react";
 
-export const NoteScreen = () => {
+const NoteScreen = () => {
   const dispatch = useDispatch();
 
-  const { active: note } = useSelector((state) => state.notes);
+  const { active: note } = useSelector((state) => state.notes); 
 
   const [formValues, handleInputChange, reset] = useForm(note);
 
@@ -18,9 +19,9 @@ export const NoteScreen = () => {
 
   const activeId = useRef(note.id);
 
-  const handleDelete = () =>{
+  const handleDelete = useCallback(() =>{
     dispatch(deleteNote(note.id))
-  }
+  }, [dispatch, note.id])
 
   useEffect(() => {
     if (activeId.current !== note.id) {
@@ -58,3 +59,5 @@ export const NoteScreen = () => {
     </NoteContainer>
   );
 };
+
+export default React.memo(NoteScreen)

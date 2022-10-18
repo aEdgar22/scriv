@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import { SideBard } from "../../layout/LeftSideBar/SideBard";
-import { NoteScreen } from "../../layout/NoteContain/NoteScreen";
+import  SideBard  from "../../layout/LeftSideBar/SideBard";
+import  NoteScreen  from "../../layout/NoteContain/NoteScreen";
 import { NothingSelected } from "../../layout/NoteContain/NothingSelected";
 import { HomeContainer } from "./HomeStyles";
 

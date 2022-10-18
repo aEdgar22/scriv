@@ -1,3 +1,4 @@
+import React from "react";
 import { useDispatch } from "react-redux";
 import { LogOutButton, OutlinedButton } from "../../common/button/Button";
 import { NotesCard } from "../../components/Notes/NotesCard";
@@ -6,7 +7,7 @@ import { startNewNote } from "../../redux/thunks/notesThunk";
 
 import { LefSideBarStyled } from "./sideBarStyles";
 
-export const SideBard = () => {
+const SideBard = () => {
   /* const [activeModal, setActiveModal] = useState(false) */
   const dispatch = useDispatch();
 
@@ -26,11 +27,6 @@ export const SideBard = () => {
           <LogOutButton onClick={handleLogout}>Logout</LogOutButton>
         </header>
 
-{/*         <InputLeftSideBar
-          type="text"
-          name="searchNote"
-          placeholder="Search scriv"
-        /> */}
 
         <NotesCard />
 
@@ -42,3 +38,5 @@ export const SideBard = () => {
     </>
   );
 };
+
+export default React.memo(SideBard)
